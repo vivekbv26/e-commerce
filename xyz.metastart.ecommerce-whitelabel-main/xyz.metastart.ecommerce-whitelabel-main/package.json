@@ -1,0 +1,15 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run dev",
+    "client-install": "cd client && npm i"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
