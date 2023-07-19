@@ -1,9 +1,25 @@
+
 import User from "./user.schema.js";
 
 // Create a new user
-const createUser = async (name, email) => {
+const createUser = async (name, email, password, contactNumber, dateOfBirth, gender, role, billingAddress, shippingAddress, paymentMethod) => {
   try {
-    const user = new User({ name, email });
+    const user = new User({
+      name,
+      email,
+      password,
+      contactNumber,
+      dateOfBirth,
+      gender,
+      role,
+      billingAddress,
+      shippingAddress,
+      paymentMethod,
+      purchases: {
+        totalSpent: 0,
+        count: 0
+      }
+    });
     const savedUser = await user.save();
     return savedUser;
   } catch (error) {
@@ -22,14 +38,24 @@ const getAllUsers = async () => {
 };
 
 // Update a user by ID
-const updateUser = async (userId, name, email) => {
+const updateUser = async (userId, name, email, contactNumber, dateOfBirth, gender, role, billingAddress, shippingAddress, paymentMethod) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(
       userId,
-      { name, email },
+      {
+        name,
+        email,
+        contactNumber,
+        dateOfBirth,
+        gender,
+        role,
+        billingAddress,
+        shippingAddress,
+        paymentMethod
+      },
       { new: true }
     );
-    return updateUser;
+    return updatedUser;
   } catch (error) {
     console.error("Error updating user:", error);
   }
