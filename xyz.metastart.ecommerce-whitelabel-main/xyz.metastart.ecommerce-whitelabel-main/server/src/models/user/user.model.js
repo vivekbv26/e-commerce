@@ -1,4 +1,7 @@
 
+
+
+
 import User from "./user.schema.js";
 
 // Create a new user
